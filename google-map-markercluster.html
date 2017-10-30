@@ -113,7 +113,7 @@ a `<google-map-defaulticon>` element.
        * Check if marker is inside the extended bounds.
        */
       isMarkerInClusterBounds(marker) {
-        return this.bounds.contains(marker.getPosition());
+        return this.bounds && this.bounds.contains(marker.getPosition());
       }
 
       /**
