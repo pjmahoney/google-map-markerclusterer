@@ -8,7 +8,7 @@
   <script src="data.json" type="text/javascript"></script>
   <link rel="import" href="../../google-map/google-map.html">
   <link rel="import" href="markerclusterer-container.html">
-  <!-- <link rel="import" href="my-custom-marker.html"> -->
+  <link rel="import" href="my-custom-marker.html">
   <!-- <link rel="import" href="my-custom-clustericon.html"> -->
   <style>
 
@@ -73,8 +73,8 @@
   <h3>An example of `google-map-clustermarker':</h3>
   <markerclusterer-container  id="default_markers"></markerclusterer-container>
 
-  <!-- <h3>Custom markers:</h3>
-  <markerclusterer-container id="custom_markers"></markerclusterer-container> -->
+  <h3>Custom markers:</h3>
+  <markerclusterer-container id="custom_markers"></markerclusterer-container>
   
   <!-- <h3>Custom markers and custom cluster:</h3>
   <markerclusterer-container id="custom_cluster">
@@ -83,14 +83,14 @@
   
   <script>
       var markerClusterer = document.querySelector('#default_markers');
-      // var markerClustererCustom = document.querySelector('#custom_markers');
+      var markerClustererCustom = document.querySelector('#custom_markers');
       // var markerClustererCustom2 = document.querySelector('#custom_cluster');
       markerClusterer.addEventListener('google-map-ready', function(e) {
         this.markers = getMarkers();
       });
-      // markerClustererCustom.addEventListener('google-map-ready', function(e) {
-      //   this.markers = getCustomMarkers();
-      // });
+      markerClustererCustom.addEventListener('google-map-ready', function(e) {
+        this.markers = getCustomMarkers();
+      });
       // markerClustererCustom2.addEventListener('google-map-ready', function(e) {
       //   this.markers = getCustomMarkers();
       // });
