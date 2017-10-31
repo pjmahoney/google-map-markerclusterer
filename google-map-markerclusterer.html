@@ -198,6 +198,7 @@ It helps to cluster markers on a google-map together
             defaultIcon.styles = this.styles;
           }
           cluster.map = this.map;
+          cluster._mapChanged(this.map);
           cluster.minimumClusterSize = this.minimumClusterSize;
           cluster.maxZoom = this.maxZoom;
           cluster.gridSize = this.gridSize;
