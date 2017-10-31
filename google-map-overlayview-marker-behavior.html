@@ -14,16 +14,22 @@
 			/**
 			 * The position of the marker on the map
 			 */
-      position: { type: Object, value: null },
+      position: Object,
 			/**
 			 * The size of the marker
 			 */
-      size: { type: Number, value: 25, },
+      size: Number,
 			/**
 			 * Set to true if the marker should be draggable
 			 */
-      draggable: { type: Boolean, value: false }
+      draggable: Boolean
     },
+
+    attached: function () {
+      this.size = 25;
+      this.draggable = false;
+    },
+
     ready: function () {
       this.style.position = 'absolute';
     },
