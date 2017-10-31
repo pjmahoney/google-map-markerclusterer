@@ -13,7 +13,7 @@ a `<google-map-defaulticon>` element.
     </style>
 
     <div hidden$={{hidden}}>
-      <slot id="overlayContent"></slot>
+      <slot id="overlayContent" name="overlay-content"></slot>
     </div>
   </template>
 
@@ -41,11 +41,13 @@ a `<google-map-defaulticon>` element.
 
       connectedCallback() {
         super.connectedCallback();
-        var contents = Polymer.dom(this.$.overlayContent).getDistributedNodes();
-        if (contents.length > 0) {
-          this.clusterSubIcon = contents[0];
-          this.clusterSubIcon.markers = this.markers;
-        }
+        Polymer.RenderStatus.beforeNextRender(this, function () {
+          var contents = this.shadowRoot.querySelector('slot').assignedNodes({flatten:true}).filter(n => n.nodeType === Node.ELEMENT_NODE);
+          if (contents.length > 0) {
+            this.clusterSubIcon = contents[0];
+            this.clusterSubIcon.markers = this.markers;
+          }
+        });
       }
 
       disconnectedCallback() {

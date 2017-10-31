@@ -35,7 +35,7 @@
       <google-map latitude="39.91" map="{{map}}" id="mapelement" longitude="116.38" zoom="2"></google-map>
       <google-map-markerclusterer map="{{map}}" max-zoom="{{maxZoom}}" minimum-cluster-size="{{minimumClusterSize}}" grid-size="{{gridSize}}"
         markers="{{markersToDisplay}}" average-center="{{averageCenter}}" styles="{{styles}}">
-        <slot id="custom_cluster_icon"></slot>
+        <slot id="custom_cluster_icon" name="custom-cluster-icon" slot="cluster-icon"></slot>
       </google-map-markerclusterer>
     </div>
     <div id="inline-actions">

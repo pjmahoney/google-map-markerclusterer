@@ -24,7 +24,7 @@ It helps to cluster markers on a google-map together
 -->
 <dom-module id="google-map-markerclusterer">
   <template>
-    <slot id="clustericontemplate" name=".cluster-icon"></slot>
+    <slot id="clustericontemplate" name="cluster-icon"></slot>
   </template>
 
   <script>
@@ -104,15 +104,18 @@ It helps to cluster markers on a google-map together
 
       connectedCallback() {
         super.connectedCallback();
-        var clusterIconTemplateContent = Polymer.dom(this.$.clustericontemplate).getDistributedNodes();
-        if (clusterIconTemplateContent.length > 0) {
-          clusterIconTemplateContent = clusterIconTemplateContent[0];
-        }
-        else {
-          clusterIconTemplateContent = document.createElement('google-map-defaulticon');
-        }
-        this._clusterIconTemplate = document.createElement('google-map-markercluster');
-        Polymer.dom(this._clusterIconTemplate).appendChild(clusterIconTemplateContent);
+        Polymer.RenderStatus.beforeNextRender(this, function () {
+          var clusterIconTemplateContent = this.shadowRoot.querySelector('slot').assignedNodes({ flatten: true }).filter(n => n.nodeType === Node.ELEMENT_NODE);
+          if (clusterIconTemplateContent.length > 0) {
+            clusterIconTemplateContent = clusterIconTemplateContent[0];
+          }
+          else {
+            clusterIconTemplateContent = document.createElement('google-map-defaulticon');
+          }
+          clusterIconTemplateContent.slot = "overlay-content";
+          this._clusterIconTemplate = document.createElement('google-map-markercluster');
+          Polymer.dom(this._clusterIconTemplate).appendChild(clusterIconTemplateContent);
+        });
       }
 
       /**
