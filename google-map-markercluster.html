@@ -162,13 +162,11 @@ a `<google-map-defaulticon>` element.
           // Zoomed in past max zoom, so show the marker.
           if (marker.getMap() !== this.map) {
             marker.setMap(this.map);
-            marker._mapChanged(this.map);
           }
         } else if (mCount < this.minimumClusterSize) {
           // Min cluster size not reached so show the marker.
           if (marker.getMap() !== this.map) {
             marker.setMap(this.map);
-            marker._mapChanged(this.map);
           }
         } else if (mCount === this.minimumClusterSize) {
           // Hide the markers that were showing.

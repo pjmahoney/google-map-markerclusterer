@@ -65,11 +65,11 @@
 
 <body>
 
-  <!-- <h3>An example of `google-map-clustermarker':</h3>
-  <markerclusterer-container  id="default_markers"></markerclusterer-container>
+  <h3>An example of `google-map-clustermarker':</h3>
+  <markerclusterer-container id="default_markers"></markerclusterer-container>
 
   <h3>Custom markers:</h3>
-  <markerclusterer-container id="custom_markers"></markerclusterer-container> -->
+  <markerclusterer-container id="custom_markers"></markerclusterer-container>
 
   <h3>Custom markers and custom cluster:</h3>
   <markerclusterer-container id="custom_cluster">
@@ -77,15 +77,15 @@
   </markerclusterer-container>
 
   <script>
-    // var markerClusterer = document.querySelector('#default_markers');
-    // var markerClustererCustom = document.querySelector('#custom_markers');
+    var markerClusterer = document.querySelector('#default_markers');
+    var markerClustererCustom = document.querySelector('#custom_markers');
     var markerClustererCustom2 = document.querySelector('#custom_cluster');
-    // markerClusterer.addEventListener('google-map-ready', function(e) {
-    //   this.markers = getMarkers();
-    // });
-    // markerClustererCustom.addEventListener('google-map-ready', function(e) {
-    //   this.markers = getCustomMarkers();
-    // });
+    markerClusterer.addEventListener('google-map-ready', function (e) {
+      this.markers = getMarkers();
+    });
+    markerClustererCustom.addEventListener('google-map-ready', function (e) {
+      this.markers = getCustomMarkers();
+    });
     markerClustererCustom2.addEventListener('google-map-ready', function (e) {
       this.markers = getCustomMarkers();
     });
