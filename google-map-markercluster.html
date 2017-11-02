@@ -59,11 +59,13 @@ a `<google-map-defaulticon>` element.
        * draw callback when the cluster is drawn.
        */
       draw() {
-        if (this.visible) {
-          var pos = this.getPosFromLatLng(this.center);
-          this.style.top = pos.y + 'px';
-          this.style.left = pos.x + 'px';
-        }
+        try {
+          if (this.visible) {
+            var pos = this.getPosFromLatLng(this.center);
+            this.style.top = pos.y + 'px';
+            this.style.left = pos.x + 'px';
+          }
+        } catch (err) { }
       }
 
       /**
@@ -211,9 +213,9 @@ a `<google-map-defaulticon>` element.
         this.overlay.getPanes().overlayMouseTarget.appendChild(this);
 
         // Fix for Issue 157
-        this._listeners.boundsChanged = google.maps.event.addListener(this.map, 'bounds_changed', function () {
+        this.map && (this._listeners.boundsChanged = google.maps.event.addListener(this.map, 'bounds_changed', function () {
           cDraggingMapByCluster = cMouseDownInCluster;
-        });
+        }));
 
         this._listeners.mousedown = google.maps.event.addDomListener(this, 'mousedown', function () {
           cMouseDownInCluster = true;
