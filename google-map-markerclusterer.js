@@ -1,4 +1,5 @@
 import { Polymer } from '@polymer/polymer/polymer-legacy.js';
+import { PolymerElement } from '@polymer/polymer/polymer-element.js';
 import { LegacyElementMixin } from '@polymer/polymer/lib/legacy/legacy-element-mixin.js';
 
 import './google-map-overlayview-behavior.js';
@@ -23,7 +24,7 @@ It helps to cluster markers on a google-map together
 
 @demo
 */
-class GoogleMapMarkerclusterer extends Polymer.mixinBehaviors([Markerclusterer.GoogleMapOverlayViewBehavior], Polymer.LegacyElementMixin(Polymer.Element)) {
+class GoogleMapMarkerclusterer extends Polymer.mixinBehaviors([Markerclusterer.GoogleMapOverlayViewBehavior], Polymer.LegacyElementMixin(PolymerElement)) {
   static get template() {
     return `
     <slot id="clustericontemplate" name="cluster-icon"></slot>
