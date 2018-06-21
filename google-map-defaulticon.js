@@ -1,3 +1,8 @@
+import { Polymer } from '@polymer/polymer/polymer-legacy.js';
+import { PolymerElement } from '@polymer/polymer/polymer-element.js';
+import { mixinBehaviors } from '../../node_modules/@polymer/polymer/lib/legacy/class.js';
+import { Markerclusterer } from  './google-map-overlayview-behavior.js';
+
 import './google-map-markercluster-icon-behavior.js';
 var BASE_IMAGE_URL = 'https://raw.githubusercontent.com/googlemaps/js-marker-clusterer/gh-pages/images/';
 var DEFAULT_STYLES = [
@@ -38,7 +43,7 @@ var DEFAULT_STYLES = [
   }
 ];
 
-class GoogleMapDefaultIcon extends Polymer.mixinBehaviors([Markerclusterer.ClusterIconBehavior], Polymer.Element) {
+class GoogleMapDefaultIcon extends mixinBehaviors([Markerclusterer.ClusterIconBehavior], PolymerElement) {
   static get template() {
     return `
     <style>
