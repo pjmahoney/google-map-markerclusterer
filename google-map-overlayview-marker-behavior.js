@@ -1,6 +1,5 @@
-import './google-map-overlayview-behavior.js';
+import { Markerclusterer } from './google-map-overlayview-behavior.js';
 /* global google */
-var Markerclusterer = Markerclusterer || {};
 /**
  * Use `Markerclusterer.GoogleMapOverlayViewMarkerBehavior` to implement elements that should be displayed as `Marker` on a `google-map` using an overlayview
  * Users should either override the `_update` if they need to customize the positioning.
@@ -81,3 +80,5 @@ Markerclusterer.GoogleMapOverlayViewMarkerBehaviorImpl = {
 };
 /** @polymerBehavior GoogleMapOverlayViewMarkerBehavior */
 Markerclusterer.GoogleMapOverlayViewMarkerBehavior = [Markerclusterer.GoogleMapOverlayViewBehavior, Markerclusterer.GoogleMapOverlayViewMarkerBehaviorImpl];
+
+export { Markerclusterer };

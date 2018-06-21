@@ -134,3 +134,5 @@ Markerclusterer.GoogleMapOverlayViewBehavior = {
     return bounds;
   },
 };
+
+export { Markerclusterer };
