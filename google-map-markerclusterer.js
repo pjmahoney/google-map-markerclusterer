@@ -1,3 +1,6 @@
+import { Polymer } from '@polymer/polymer/polymer-legacy.js';
+import { LegacyElementMixin } from '@polymer/polymer/lib/legacy/legacy-element-mixin.js';
+
 import './google-map-overlayview-behavior.js';
 import './google-map-markercluster.js';
 import './google-map-defaulticon.js';

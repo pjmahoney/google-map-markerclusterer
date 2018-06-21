@@ -1,10 +1,11 @@
 import { Polymer } from '@polymer/polymer/polymer-legacy.js';
+import { LegacyElementMixin } from '@polymer/polymer/lib/legacy/legacy-element-mixin.js';
 import { Markerclusterer } from  './google-map-overlayview-behavior.js';
 /*
 The `google-map-markercluster` is an internal element that is used by `google-map-markerclusterer`. By default it wraps
 a `<google-map-defaulticon>` element.
 */
-class GoogleMapMarkercluster extends Polymer.mixinBehaviors([Markerclusterer.GoogleMapOverlayViewBehavior], Polymer.LegacyElementMixin(Polymer.Element)) {
+class GoogleMapMarkercluster extends Polymer.mixinBehaviors([Markerclusterer.GoogleMapOverlayViewBehavior],LegacyElementMixin(Polymer.Element)) {
   static get template() {
     return `
     <style>
