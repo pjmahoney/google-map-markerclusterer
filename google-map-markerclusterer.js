@@ -26,7 +26,7 @@ It helps to cluster markers on a google-map together
 
 @demo
 */
-class GoogleMapMarkerclusterer extends mixinBehaviors([Markerclusterer.GoogleMapOverlayViewBehavior], Polymer.LegacyElementMixin(PolymerElement)) {
+class GoogleMapMarkerclusterer extends mixinBehaviors([Markerclusterer.GoogleMapOverlayViewBehavior], LegacyElementMixin(PolymerElement)) {
   static get template() {
     return `
     <slot id="clustericontemplate" name="cluster-icon"></slot>
