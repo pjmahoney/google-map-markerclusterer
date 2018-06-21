@@ -1,5 +1,5 @@
 <link rel="import" href="../polymer/polymer-element.html">
-<link rel="import" href="google-map-overlayview-behavior.html">
+<script type="module" src="./google-map-overlayview-behavior.js"></script>
 <link rel="import" href="../google-apis/google-apis.html">
 
 <!--
@@ -22,12 +22,13 @@ It is also possible to embed another `custom element` inside a `<google-map-over
   <template>
     <slot id="overlayContent"></slot>
   </template>
-  <script>
-    /* global Markerclusterer */
-    class GoogleMapOverlayview extends Polymer.mixinBehaviors([Markerclusterer.GoogleMapOverlayViewBehavior], Polymer.Element) {
-      static get is() { return 'google-map-overlayview'; }
-    }
+  <script type="module">
+import './google-map-overlayview-behavior.js';
+/* global Markerclusterer */
+class GoogleMapOverlayview extends Polymer.mixinBehaviors([Markerclusterer.GoogleMapOverlayViewBehavior], Polymer.Element) {
+  static get is() { return 'google-map-overlayview'; }
+}
 
-    window.customElements.define(GoogleMapOverlayview.is, GoogleMapOverlayview);
-  </script>
+window.customElements.define(GoogleMapOverlayview.is, GoogleMapOverlayview);
+</script>
 </dom-module>

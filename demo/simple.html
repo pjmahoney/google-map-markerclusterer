@@ -4,7 +4,7 @@
   <title>MarkerClusterer v3 Example</title>
   <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
   <script src="data.json" type="text/javascript"></script>
-  <link rel="import" href="../google-map-markerclusterer.html">
+  <script type="module" src="../google-map-markerclusterer.js"></script>
   <link rel="import" href="../../google-map/google-map.html">
   <style type="text/css">
       body {
@@ -31,28 +31,29 @@
         height:400px;
       }
     </style>
-    <script type="text/javascript">
+    <script type="module">
+import '../google-map-markerclusterer.js';
 
-      function initialize() {
-        var map = document.querySelector("#mapelement");
-        var clusterer = document.querySelector("google-map-markerclusterer");
-        var markers = [];
-        for (var i = 0; i < 100; i++) {
-          var dataPhoto = data.photos[i];
-          var latLng = new google.maps.LatLng(dataPhoto.latitude,
-              dataPhoto.longitude);
-          var marker = new google.maps.Marker({
-            position: latLng
-          });
-          markers.push(marker);
-        }
-        clusterer.map = map.map;
-        clusterer.markers = markers;
-      }
-      window.addEventListener('WebComponentsReady', function(e) {
-        document.querySelector("#mapelement").addEventListener("google-map-ready",initialize);
-      });
-    </script>
+function initialize() {
+  var map = document.querySelector("#mapelement");
+  var clusterer = document.querySelector("google-map-markerclusterer");
+  var markers = [];
+  for (var i = 0; i < 100; i++) {
+    var dataPhoto = data.photos[i];
+    var latLng = new google.maps.LatLng(dataPhoto.latitude,
+        dataPhoto.longitude);
+    var marker = new google.maps.Marker({
+      position: latLng
+    });
+    markers.push(marker);
+  }
+  clusterer.map = map.map;
+  clusterer.markers = markers;
+}
+window.addEventListener('WebComponentsReady', function(e) {
+  document.querySelector("#mapelement").addEventListener("google-map-ready",initialize);
+});
+</script>
   </head>
   <body>
     <h3>A simple example of MarkerClusterer (100 markers)</h3>
