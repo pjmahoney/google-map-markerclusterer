@@ -2,6 +2,7 @@ import { Polymer } from '@polymer/polymer/polymer-legacy.js';
 import { PolymerElement } from '@polymer/polymer/polymer-element.js';
 import { mixinBehaviors } from '../../node_modules/@polymer/polymer/lib/legacy/class.js';
 import { LegacyElementMixin } from '@polymer/polymer/lib/legacy/legacy-element-mixin.js';
+import { Markerclusterer } from  './google-map-overlayview-behavior.js';
 
 import './google-map-overlayview-behavior.js';
 import './google-map-markercluster.js';
