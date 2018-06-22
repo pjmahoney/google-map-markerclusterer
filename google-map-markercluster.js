@@ -1,5 +1,5 @@
 import { Polymer } from '@polymer/polymer/polymer-legacy.js';
-import { PolymerElement } from '@polymer/polymer/polymer-element.js';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import { LegacyElementMixin } from '@polymer/polymer/lib/legacy/legacy-element-mixin.js';
 import { mixinBehaviors } from '../../node_modules/@polymer/polymer/lib/legacy/class.js';
 import { Markerclusterer } from  './google-map-overlayview-behavior.js';
@@ -9,7 +9,7 @@ a `<google-map-defaulticon>` element.
 */
 class GoogleMapMarkercluster extends mixinBehaviors([Markerclusterer.GoogleMapOverlayViewBehavior],LegacyElementMixin(PolymerElement)) {
   static get template() {
-    return `
+    return html`
     <style>
       :host {}
     </style>
