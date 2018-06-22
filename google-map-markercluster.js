@@ -1,4 +1,6 @@
 import { Polymer } from '@polymer/polymer/polymer-legacy.js';
+import { dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
+import { beforeNextRender } from '@polymer/polymer/lib/utils/render-status.js';
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import { LegacyElementMixin } from '@polymer/polymer/lib/legacy/legacy-element-mixin.js';
 import { mixinBehaviors } from '../../node_modules/@polymer/polymer/lib/legacy/class.js';
@@ -42,7 +44,7 @@ class GoogleMapMarkercluster extends mixinBehaviors([Markerclusterer.GoogleMapOv
 
   connectedCallback() {
     super.connectedCallback();
-    Polymer.RenderStatus.beforeNextRender(this, function () {
+    beforeNextRender(this, function () {
       var contents = this.shadowRoot.querySelector('slot').assignedNodes({ flatten: true }).filter(n => n.nodeType === Node.ELEMENT_NODE);
       if (contents.length > 0) {
         this.clusterSubIcon = contents[0];
@@ -196,7 +198,7 @@ class GoogleMapMarkercluster extends mixinBehaviors([Markerclusterer.GoogleMapOv
     this._clearListener('boundsChanged');
     google.maps.event.clearInstanceListeners(this);
     if (this.parentNode) {
-      Polymer.dom(this.parentNode).removeChild(this);
+      dom(this.parentNode).removeChild(this);
     }
     this.markers = [];
   }

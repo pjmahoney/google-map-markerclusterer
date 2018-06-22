@@ -1,4 +1,5 @@
 /* global google */
+import { dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
 var Markerclusterer = Markerclusterer || {};
 /**
  * Use `Markerclusterer.GoogleMapOverlayViewBehavior` to implement elements that should be displayed on a `google-map` using an overlayview
@@ -83,7 +84,7 @@ Markerclusterer.GoogleMapOverlayViewBehavior = {
    * onRemove callback when the overlayview is removed from the map.
    */
   onRemove: function () {
-    Polymer.dom(this.parentNode).removeChild(this);
+    dom(this.parentNode).removeChild(this);
   },
 
   /**

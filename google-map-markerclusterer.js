@@ -1,4 +1,6 @@
 import { Polymer } from '@polymer/polymer/polymer-legacy.js';
+import { dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
+import { beforeNextRender } from '@polymer/polymer/lib/utils/render-status.js';
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import { mixinBehaviors } from '../../node_modules/@polymer/polymer/lib/legacy/class.js';
 import { LegacyElementMixin } from '@polymer/polymer/lib/legacy/legacy-element-mixin.js';
@@ -106,7 +108,7 @@ class GoogleMapMarkerclusterer extends mixinBehaviors([Markerclusterer.GoogleMap
 
   connectedCallback() {
     super.connectedCallback();
-    Polymer.RenderStatus.beforeNextRender(this, function () {
+    beforeNextRender(this, function () {
       var clusterIconTemplateContent = this.shadowRoot.querySelector('slot').assignedNodes({ flatten: true }).filter(n => n.nodeType === Node.ELEMENT_NODE);
       if (clusterIconTemplateContent.length > 0) {
         clusterIconTemplateContent = clusterIconTemplateContent[0];
@@ -116,7 +118,7 @@ class GoogleMapMarkerclusterer extends mixinBehaviors([Markerclusterer.GoogleMap
       }
       clusterIconTemplateContent.slot = "overlay-content";
       this._clusterIconTemplate = document.createElement('google-map-markercluster');
-      Polymer.dom(this._clusterIconTemplate).appendChild(clusterIconTemplateContent);
+      dom(this._clusterIconTemplate).appendChild(clusterIconTemplateContent);
     });
   }
 
@@ -196,9 +198,9 @@ class GoogleMapMarkerclusterer extends mixinBehaviors([Markerclusterer.GoogleMap
     if (clusterToAddTo && clusterToAddTo.isMarkerInClusterBounds(marker)) {
       clusterToAddTo.addMarker(marker);
     } else {
-      cluster = Polymer.dom(this._clusterIconTemplate).cloneNode(true);
+      cluster = dom(this._clusterIconTemplate).cloneNode(true);
       // WORKAROUND for
-      var defaultIcon = Polymer.dom(cluster).querySelector('google-map-defaulticon');
+      var defaultIcon = dom(cluster).querySelector('google-map-defaulticon');
       if (defaultIcon) {
         defaultIcon.styles = this.styles;
       }
@@ -389,11 +391,11 @@ class GoogleMapMarkerclusterer extends mixinBehaviors([Markerclusterer.GoogleMap
    * Only used when the `google-map-defaulticon` is used.
    */
   _changeStyles(styles) {
-    var defaultIcon = Polymer.dom(this._clusterIconTemplate).querySelector('google-map-defaulticon');
+    var defaultIcon = dom(this._clusterIconTemplate).querySelector('google-map-defaulticon');
     if (defaultIcon) {
       defaultIcon.styles = styles;
       for (var i = 0; i < this.clusters.length; i++) {
-        Polymer.dom(this.clusters[i]).firstElementChild.styles = styles;
+        dom(this.clusters[i]).firstElementChild.styles = styles;
       }
     }
   }
