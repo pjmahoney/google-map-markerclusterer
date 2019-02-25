@@ -1,6 +1,5 @@
 {
   "name": "google-map-markerclusterer",
-  "flat": true,
   "version": "3.0.0",
   "description": "Markerclusterer Plus for google maps as a polymer web-component",
   "contributors": [
