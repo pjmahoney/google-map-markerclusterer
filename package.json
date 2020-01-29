@@ -13,7 +13,7 @@
   "license": "MIT",
   "homepage": "https://github.com/timeu/google-map-markerclusterer",
   "dependencies": {
-    "google-map": "git+ssh://git@github.com:communitybuilders/google-map.git#3.x",
+    "google-map": "git+https://github.com/communitybuilders/google-map.git#3.x",
     "@polymer/polymer": "^3.0.0-pre.1"
   },
   "devDependencies": {}
